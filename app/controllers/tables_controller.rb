@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class TablesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_action :set_table, only: %i[show edit update destroy]
   after_action :verify_authorized
 
   def index

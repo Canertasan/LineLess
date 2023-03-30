@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReservationController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: %i[show edit update destroy]
 
   def index
     @reservations = Reservation.all
@@ -29,8 +31,7 @@ class ReservationController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @reservation.update(reservation_params)
