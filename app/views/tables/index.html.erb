@@ -1,0 +1,32 @@
+<h1>Tables</h1>
+
+<% if @tables.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Capacity</th>
+        <th>Available</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tables.each do |table| %>
+        <tr>
+          <td><%= table.name %></td>
+          <td><%= table.capacity %></td>
+          <td><%= table.available ? 'Yes' : 'No' %></td>
+          <td>
+            <%= link_to 'Edit', edit_table_path(table) %>
+            <%= button_to 'Delete', table_path(table), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No tables found.</p>
+<% end %>
+
+<%= link_to 'New Table', new_table_path %>

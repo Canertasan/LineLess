@@ -1,0 +1,35 @@
+<h1>Edit Table</h1>
+
+<%= form_for @table do |f| %>
+  <% if @table.errors.any? %>
+    <div>
+      <h3><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h3>
+      <ul>
+        <% @table.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </div>
+
+  <div>
+    <%= f.label :available %>
+    <%= f.check_box :available %>
+  </div>
+
+  <div>
+    <%= f.submit 'Update Table' %>
+  </div>
+<% end %>
+
+<%= link_to 'Cancel', tables_path %>

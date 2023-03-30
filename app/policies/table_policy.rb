@@ -14,22 +14,22 @@ class TablePolicy < ApplicationPolicy
   end
 
   def update?
-    table_account_owner?
+    table_owner?
   end
 
   def destroy?
-    table_account_owner?
+    table_owner?
   end
 
   private
 
-  def table_account_owner?
-    record.account == user
+  def table_owner?
+    record.user == user
   end
 
   class Scope < Scope
     def resolve
-      scope.where(account: user)
+      scope.where(:user)
     end
   end
 end
