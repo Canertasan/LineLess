@@ -65,6 +65,9 @@ gem 'awesome_print'
 # Use Rubocop for linting
 gem 'rubocop', require: false
 
+# Use Rqrcode for QR codes
+gem 'rqrcode'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug'
