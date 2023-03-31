@@ -15,12 +15,11 @@
       <p>Logged in as <%= current_user.email %></p>
       <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign up as Cafe", new_user_registration_path %> |
+      <%= link_to "Login as Cafe", new_user_session_path %>
     <% end %>
 
-    <%= link_to 'All Tables', tables_path %>
-    <%= link_to 'New Table', new_table_path %>
+    <img src="/qr_code" alt="QR code" />
 
     <%= yield %>
   </body>
